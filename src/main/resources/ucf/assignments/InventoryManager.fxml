@@ -1,14 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="ucf.assignments.InventoryManagerController"
-            prefHeight="400.0" prefWidth="600.0">
 
-</AnchorPane>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="645.0" prefWidth="1048.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ucf.assignments.InventoryManagerController">
+   <right>
+      <TableView prefHeight="671.0" prefWidth="386.0" BorderPane.alignment="CENTER">
+        <columns>
+          <TableColumn fx:id="ValueListView" prefWidth="93.6666259765625" text="Value" />
+          <TableColumn fx:id="SerialNumberListView" prefWidth="150.3333740234375" text="Serial Number" />
+            <TableColumn fx:id="NameListView" prefWidth="141.0" text="Name" />
+        </columns>
+      </TableView>
+   </right>
+   <left>
+      <Pane prefHeight="557.0" prefWidth="352.0" BorderPane.alignment="CENTER">
+         <children>
+            <TextField fx:id="entervaluefield" layoutX="14.0" layoutY="54.0" promptText="Enter Value " />
+            <Text layoutX="109.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter Items Here">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+            <TextField fx:id="enterserialnumberfield" layoutX="14.0" layoutY="89.0" promptText="Enter Serial Number" />
+            <TextField fx:id="enternamefield" layoutX="14.0" layoutY="125.0" promptText="Enter Name" />
+            <Button layoutX="14.0" layoutY="163.0" mnemonicParsing="false" onAction="#addnewitem" prefHeight="25.0" prefWidth="146.0" text="Add New Item" />
+            <Button layoutX="15.0" layoutY="240.0" mnemonicParsing="false" onAction="#removeitem" prefHeight="25.0" prefWidth="146.0" text="Remove Item" />
+            <Button layoutX="15.0" layoutY="275.0" mnemonicParsing="false" onAction="#edititem" prefHeight="25.0" prefWidth="146.0" text="Edit Item (PlaceHolder)" />
+            <Button layoutX="14.0" layoutY="343.0" mnemonicParsing="false" onAction="#sortbyvalue" prefHeight="25.0" prefWidth="146.0" text="Sort by Value" />
+            <Button layoutX="15.0" layoutY="376.0" mnemonicParsing="false" onAction="#sortbyserialnumber" prefHeight="25.0" prefWidth="146.0" text="Sort by Serial Number" />
+            <Button layoutX="14.0" layoutY="410.0" mnemonicParsing="false" onAction="#sortbyname" prefHeight="25.0" prefWidth="146.0" text="Sort by Name" />
+            <Button layoutX="14.0" layoutY="517.0" mnemonicParsing="false" onAction="#loadaninventory" prefHeight="25.0" prefWidth="146.0" text="Load An Inventory" />
+            <Button layoutX="15.0" layoutY="483.0" mnemonicParsing="false" onAction="#saveinventorytofile" prefHeight="25.0" prefWidth="146.0" text="Save Inventory to File" />
+         </children>
+      </Pane>
+   </left>
+</BorderPane>
