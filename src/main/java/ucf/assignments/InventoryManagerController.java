@@ -53,6 +53,12 @@ public class InventoryManagerController implements Initializable {
 
     @FXML
     public void addnewitem(ActionEvent actionEvent) {
+
+        ItemInfo newItemInfo = new ItemInfo(enternamefield.getText(),
+                                            enterserialnumberfield.getText(),
+                                           entervaluefield.getText());
+        //add value checker for serialnumber, and add converter for value
+        ItemTable.getItems().add(newItemInfo);
     }
 
     @FXML
