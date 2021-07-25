@@ -84,10 +84,12 @@ public class InventoryManagerController implements Initializable {
 
     @FXML
     public void sortbyserialnumber(ActionEvent actionEvent) {
+        ItemTable.getSortOrder().add(serialColumn);
     }
 
     @FXML
     public void sortbyname(ActionEvent actionEvent) {
+        ItemTable.getSortOrder().add(nameColumn);
     }
 
     @FXML

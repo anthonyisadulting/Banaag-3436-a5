@@ -1,27 +1,63 @@
 @startuml
 'https://plantuml.com/class-diagram
 
-abstract class AbstractList
-abstract AbstractCollection
-interface List
-interface Collection
 
-List <|-- AbstractList
-Collection <|-- AbstractCollection
 
-Collection <|- List
-AbstractCollection <|- AbstractList
-AbstractList <|-- ArrayList
 
-class ArrayList {
-Object[] elementData
-size()
+javafx.InventoryApp <|- javafx.InventoryManagerController
+javafx.InventoryManagerController <|- ItemInfo
+
+
+
+
+
+class javafx.InventoryApp{
++main()
++start()
 }
 
-enum TimeUnit {
-DAYS
-HOURS
-MINUTES
+class javafx.InventoryManagerController{
+-ItemTable
+-valueColumn
+-serialColumn
+-nameColumn
+-entervaluefield
+-enterserialnumberfield
+-enternamefield
+
++changeValueColumnEvent
++ChangeSerialColumnEvent
++changeNameColumnEvent
+
++addnewitem
++removeitem
++sortbyvalue
++sortbyserialnumber
++sortbyname
++searchSerialNumber
++searchName
++loadaninventory
++saveinventorytofile
+
++initialize
+
+}
+
+class ItemInfo{
+-name
+-serialnumber
+-value
+
++ItemInfo()
++getName()
++nameProperty()
++setName()
++getSerialNumber()
++serialnumberProperty()
++setSerialnumber()
++getValue()
++valueProperty()
++setValue()
 }
 
 @enduml
