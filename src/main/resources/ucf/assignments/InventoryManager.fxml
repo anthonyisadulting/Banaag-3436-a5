@@ -31,13 +31,14 @@
             <TextField fx:id="enterserialnumberfield" layoutX="14.0" layoutY="89.0" promptText="Enter Serial Number" />
             <TextField fx:id="enternamefield" layoutX="14.0" layoutY="125.0" promptText="Enter Name" />
             <Button layoutX="14.0" layoutY="163.0" mnemonicParsing="false" onAction="#addnewitem" prefHeight="25.0" prefWidth="146.0" text="Add New Item" />
-            <Button layoutX="15.0" layoutY="240.0" mnemonicParsing="false" onAction="#removeitem" prefHeight="25.0" prefWidth="146.0" text="Remove Item" />
-            <Button layoutX="15.0" layoutY="275.0" mnemonicParsing="false" onAction="#edititem" prefHeight="25.0" prefWidth="146.0" text="Edit Item (PlaceHolder)" />
-            <Button layoutX="14.0" layoutY="343.0" mnemonicParsing="false" onAction="#sortbyvalue" prefHeight="25.0" prefWidth="146.0" text="Sort by Value" />
-            <Button layoutX="15.0" layoutY="376.0" mnemonicParsing="false" onAction="#sortbyserialnumber" prefHeight="25.0" prefWidth="146.0" text="Sort by Serial Number" />
-            <Button layoutX="14.0" layoutY="410.0" mnemonicParsing="false" onAction="#sortbyname" prefHeight="25.0" prefWidth="146.0" text="Sort by Name" />
-            <Button layoutX="14.0" layoutY="517.0" mnemonicParsing="false" onAction="#loadaninventory" prefHeight="25.0" prefWidth="146.0" text="Load An Inventory" />
-            <Button layoutX="15.0" layoutY="483.0" mnemonicParsing="false" onAction="#saveinventorytofile" prefHeight="25.0" prefWidth="146.0" text="Save Inventory to File" />
+            <Button layoutX="14.0" layoutY="196.0" mnemonicParsing="false" onAction="#removeitem" prefHeight="25.0" prefWidth="146.0" text="Remove Item" />
+            <Button layoutX="14.0" layoutY="260.0" mnemonicParsing="false" onAction="#sortbyvalue" prefHeight="25.0" prefWidth="146.0" text="Sort by Value" />
+            <Button layoutX="15.0" layoutY="293.0" mnemonicParsing="false" onAction="#sortbyserialnumber" prefHeight="25.0" prefWidth="146.0" text="Sort by Serial Number" />
+            <Button layoutX="14.0" layoutY="327.0" mnemonicParsing="false" onAction="#sortbyname" prefHeight="25.0" prefWidth="146.0" text="Sort by Name" />
+            <Button layoutX="14.0" layoutY="568.0" mnemonicParsing="false" onAction="#loadaninventory" prefHeight="25.0" prefWidth="146.0" text="Load An Inventory" />
+            <Button layoutX="15.0" layoutY="535.0" mnemonicParsing="false" onAction="#saveinventorytofile" prefHeight="25.0" prefWidth="146.0" text="Save Inventory to File" />
+            <Button layoutX="15.0" layoutY="407.0" mnemonicParsing="false" onAction="#searchSerialNumber" prefHeight="25.0" prefWidth="146.0" text="Search Serial Number" />
+            <Button layoutX="15.0" layoutY="441.0" mnemonicParsing="false" onAction="#searchName" prefHeight="25.0" prefWidth="146.0" text="Search Name" />
          </children>
       </Pane>
    </left>
