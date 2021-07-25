@@ -38,6 +38,7 @@ class javafx.InventoryManagerController{
 +searchName
 +loadaninventory
 +saveinventorytofile
++edititems
 
 +initialize
 

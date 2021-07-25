@@ -10,6 +10,7 @@ public class ItemInfo {
 
 
     public ItemInfo(String name, String serialnumber, String value) {
+        //input strings and make it simplepropertystring
         this.name = new SimpleStringProperty(name);
         this.serialnumber = new SimpleStringProperty(serialnumber);
         this.value = new SimpleStringProperty(value);
