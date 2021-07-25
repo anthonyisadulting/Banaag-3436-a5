@@ -77,6 +77,9 @@ public class InventoryManagerController implements Initializable {
 
     @FXML
     public void sortbyvalue(ActionEvent actionEvent) {
+
+        ItemTable.getSortOrder().add(valueColumn);
+
     }
 
     @FXML
