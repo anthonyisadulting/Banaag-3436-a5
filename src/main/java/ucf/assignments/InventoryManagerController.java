@@ -1,24 +1,30 @@
 package ucf.assignments;
 
+/*
+ *  UCF COP3330 Summer 2021 Assignment 5 Solution
+ *  Copyright 2021 Anthony Banaag
+ */
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.SelectionMode;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 
 
 
 import java.net.URL;
+import java.util.Locale;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class InventoryManagerController implements Initializable {
+
     @FXML
     private TableView<ItemInfo> ItemTable;
 
@@ -30,6 +36,9 @@ public class InventoryManagerController implements Initializable {
 
     @FXML
     private TableColumn<ItemInfo, String> nameColumn;
+
+    @FXML
+    private TextField searchbar;
 
     @FXML
     private TextField entervaluefield;
@@ -60,6 +69,10 @@ public class InventoryManagerController implements Initializable {
         itemInfoSelected.setName(edditedCell.getNewValue().toString());
     }
 
+    public void checkserialnumber(){
+
+    }
+
 
     @FXML
     public void addnewitem(ActionEvent actionEvent) {
@@ -68,6 +81,9 @@ public class InventoryManagerController implements Initializable {
         ItemInfo newItemInfo = new ItemInfo(enternamefield.getText(),
                                             enterserialnumberfield.getText(),
                                            entervaluefield.getText());
+
+
+
         //add value checker for serialnumber, and add converter for value
         //get the items and add it to tableview
         ItemTable.getItems().add(newItemInfo);
@@ -106,10 +122,14 @@ public class InventoryManagerController implements Initializable {
 
     @FXML
     public void searchSerialNumber(ActionEvent actionEvent) {
+
+
         //use enterserialnumber textfield to search
         setCellValueFactory();
         //use filterfield and ifelse get functions
         FilteredList<ItemInfo> filteredData = new FilteredList<>(dataList, b->true);
+
+
 
     }
 
@@ -155,6 +175,45 @@ public class InventoryManagerController implements Initializable {
         nameColumn.setCellValueFactory(new PropertyValueFactory<ItemInfo, String>("name"));
     }
 
+    public void initialsearchforitems(){
+        //searchforitems
+        FilteredList<ItemInfo> filteredData = new FilteredList<>(dataList, b -> true);
+
+        searchbar.textProperty().addListener(((observable, oldValue, newValue) -> {
+            filteredData.setPredicate(ItemInfo ->{
+
+                if(newValue == null || newValue.isEmpty()){
+                    return true;
+                }
+
+                String lowercaseFilter = newValue.toLowerCase();
+
+                if (ItemInfo.getValue().indexOf(lowercaseFilter) != -1){
+                    return true;
+                }else if (ItemInfo.getSerialnumber().indexOf(lowercaseFilter) != -1){
+                    return true;
+                } else if (ItemInfo.getName().indexOf(lowercaseFilter) != -1)
+                    return true;
+                else
+                    return false;
+
+
+            });
+        }));
+        SortedList<ItemInfo> sortedData = new SortedList<>(filteredData);
+
+        sortedData.comparatorProperty().bind(ItemTable.comparatorProperty());
+
+        ItemTable.setItems(sortedData);
+    }
+    public void searchButton(ActionEvent event) {
+        /*
+        ItemTable.getItems().clear();
+        ItemTable.getItems().addAll(searchList(searchbar.getText(), ObservableList<ItemInfo>));
+
+         */
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle rb){
    //setCellValue
@@ -164,8 +223,10 @@ public class InventoryManagerController implements Initializable {
     //remove initialization
     initialremoveitems();
 
-    }
 
+
+
+    }
 
 
 

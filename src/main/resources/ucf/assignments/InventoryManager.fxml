@@ -42,4 +42,17 @@
          </children>
       </Pane>
    </left>
+   <center>
+      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Text layoutX="89.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Search For Items">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <TextField fx:id="searchbar" alignment="TOP_LEFT" layoutX="39.0" layoutY="46.0" prefHeight="141.0" prefWidth="232.0" promptText="Enter Value, Serial Number, or Name!" />
+            <Button layoutX="129.0" layoutY="198.0" mnemonicParsing="false" onAction="#searchButton" text="Search" />
+         </children>
+      </Pane>
+   </center>
 </BorderPane>
